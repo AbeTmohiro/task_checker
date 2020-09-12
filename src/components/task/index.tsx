@@ -22,6 +22,7 @@ export const Task = (props: Props) => {
  const date: Date = new Date();
 
  const [status, setStatus] = useState<number>(props.task.status);
+ // eslint-disable-next-line 
  const { data, dispatch } = useContext(DataContext);
 
  const changeStatus = async (event: any) => {

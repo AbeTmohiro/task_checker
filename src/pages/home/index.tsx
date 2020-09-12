@@ -21,7 +21,7 @@ export const DataContext = React.createContext<dataContextType>(
 );
 
 export const Home = () => {
- const taskStatusElements: string[] = [
+const taskStatusElements: string[] = [
    "ToDo",
    "Pending",
    "Doing(ToDay)",
@@ -46,10 +46,12 @@ export const Home = () => {
      }
    };
    fetchData();
+   // eslint-disable-next-line 
  }, []);
 
  useEffect(() => {
    fetchSortedTasks(data.taskData, selectedGenre);
+   // eslint-disable-next-line 
  }, [data.taskData]);
 
  // モーダルの開閉処理
