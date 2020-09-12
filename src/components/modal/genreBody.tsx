@@ -1,19 +1,65 @@
-import React from "react";
+import React, { useState, useContext } from "react";
 import CancelIcon from "@material-ui/icons/Cancel";
+import { DataContext } from "../../pages/home";
+import { GenreType } from "../../interfaces/Genre";
+import { genreRequest } from "../../requests/genreRequest";
 import "./style.css";
 
 export const GenreBody = () => {
+ const [genreName, setGenreName] = useState<string>("");
+ const { data, dispatch } = useContext(DataContext);
+
+ const onClickSubmit = async () => {
+   const newData: GenreType = {
+     id: 0,
+     name: genreName,
+   };
+   try {
+     const genres: GenreType[] = await genreRequest("createGenres", {
+       data: newData,
+     });
+     dispatch({ type: "success", payload: { genre: genres } });
+     setGenreName("");
+   } catch (err) {
+     dispatch({ type: "failure", payload: { error: err.message } });
+   }
+ };
+
+ const handleOnDelete = async (id: number) => {
+   try {
+     const genres: GenreType[] = await genreRequest("deleteGenres", {
+       id: id,
+     });
+     dispatch({ type: "success", payload: { genre: genres } });
+   } catch (err) {
+     dispatch({ type: "failure", payload: { error: err.message } });
+   }
+ };
+
+ const handleChangeGenre = (val: any) => {
+   setGenreName(val.target.value);
+ };
+
  return (
    <div className="flex direction_column horizontal_center vertical_center">
      <h2 className="input_menu">ジャンル編集</h2>
      <ul>
-       <li className="genre_title flex space_between">
-         <span>ジャンルの名前</span>
-         <CancelIcon />
-       </li>
+       {data.genreData.map((genre: GenreType) => {
+         return (
+           <li className="genre_title flex space_between" key={genre.id}>
+             <span>{genre.name}</span>
+             <CancelIcon onClick={() => handleOnDelete(genre.id)} />
+           </li>
+         );
+       })}
      </ul>
-     <input type="text" />
-     <input className="input_submit" type="button" value="追加" />
+     <input type="text" value={genreName} onChange={handleChangeGenre} />
+     <input
+       className="input_submit"
+       type="button"
+       value="追加"
+       onClick={onClickSubmit}
+     />
    </div>
  );
 };

@@ -2,11 +2,13 @@ import React from "react";
 import Modal from "react-modal";
 import { TaskBody } from "./taskBody";
 import { GenreBody } from "./genreBody";
+import { TaskType } from "../../interfaces/Task";
 
 interface Props {
  handleClose: () => void;
  open: boolean;
- body: string; //モーダルの中身を区別する値
+ body: string;
+ task?: TaskType;
 }
 const customStyles = {
  overlay: {
@@ -23,10 +25,10 @@ const customStyles = {
  },
 };
 
-const renderBody = (body: string, handleClose: () => void) => {
+const renderBody = (body: string, handleClose: () => void, task?: TaskType) => {
  switch (body) {
    case "taskBody":
-     return <TaskBody />;
+     return <TaskBody handleClose={handleClose} task={task} />;
    case "genreBody":
      return <GenreBody />;
    default:
@@ -42,7 +44,7 @@ export const FormModal = (props: Props) => {
      onRequestClose={props.handleClose}
      style={customStyles}
    >
-     {renderBody(props.body, props.handleClose)}
+     {renderBody(props.body, props.handleClose, props.task)}
    </Modal>
  );
 };

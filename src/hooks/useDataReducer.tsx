@@ -1,6 +1,6 @@
 import { useReducer } from "react";
-import { TaskType } from "../interfaces/Task";
-import { GenreType } from "../interfaces/Genre";
+import {TaskType}from "../interfaces/Task";
+import {GenreType} from "../interfaces/Genre";
 
 export type Data = {
   taskData: TaskType[];

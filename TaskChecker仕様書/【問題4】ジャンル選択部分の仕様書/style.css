@@ -1,0 +1,17 @@
+.genre {
+  height: 40px;
+  padding-top: 20px;
+}
+.add_circle_outline_icon {
+  margin-left: 10px;
+  color: rgb(70, 70, 70);
+}
+.select {
+  height: 25px;
+  font-size: 15px;
+  color: rgb(70, 70, 70);
+  border: none;
+  border-bottom: thin solid #cfcfcf;
+  outline: none;
+  cursor: pointer;
+}

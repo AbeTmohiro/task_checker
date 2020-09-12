@@ -1,0 +1,25 @@
+<div className="flex direction_column horizontal_center vertical_center">
+  <h2 className="input_menu">ジャンル編集</h2>
+  <ul>
+    <li className="genre_title flex space_between">
+      <span>ジャンルの名前</span>
+      <CancelIcon/>
+    </li>
+  </ul>
+  <input type="text"/>
+  <input className="input_submit" type="button" value="追加"/>
+</div>
+
+
+.genre_title {
+  width: 200px;
+}
+
+input {
+  border: none;
+  background-color: #f3f3f3;
+  padding: 16px;
+  border-radius: 5px;
+  width: 230px;
+  line-height: 1.5em;
+}

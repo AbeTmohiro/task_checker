@@ -1,0 +1,41 @@
+<form className="flex direction_column horizontal_center vertical_center">
+  <h2 className="input_menu">タスクを追加</h2>
+  <div>
+    <h4 className="input_title">ジャンル</h4>
+    <div className="task_genre">
+      /* selectモーダルを使用してください */
+    </div>
+    <h4 className="input_title">タイトル</h4>
+    <input type="text" />
+    <h4 className="input_title">説明</h4>
+    <textarea />
+    <h4 className="input_title">期限</h4>
+    <input className="input_date" type="date"/>
+  </div>
+  <input className="input_submit" type="button" value="送信"/>
+    <button className="button delete_button" type="button">
+      このタスクを削除する削除
+    </button>
+</form>
+
+.input_title {
+  height: 3px;
+}
+
+input,
+textarea {
+  border: none;
+  background-color: #f3f3f3;
+  padding: 16px;
+  border-radius: 5px;
+  width: 230px;
+  line-height: 1.5em;
+}
+
+.delete_button {
+  margin-top: 20px;
+  border-style: none;
+  font-size: 12px;
+  color: rgb(196, 82, 53);
+  border-bottom: medium solid rgb(196, 82, 53);
+}
