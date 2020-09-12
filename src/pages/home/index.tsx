@@ -46,12 +46,10 @@ const taskStatusElements: string[] = [
      }
    };
    fetchData();
-   // eslint-disable-next-line 
  }, []);
 
  useEffect(() => {
    fetchSortedTasks(data.taskData, selectedGenre);
-   // eslint-disable-next-line 
  }, [data.taskData]);
 
  // モーダルの開閉処理

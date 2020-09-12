@@ -14,7 +14,7 @@
   </div>
   <input className="input_submit" type="button" value="送信"/>
     <button className="button delete_button" type="button">
-      このタスクを削除する削除
+      このタスクを削除する
     </button>
 </form>
 

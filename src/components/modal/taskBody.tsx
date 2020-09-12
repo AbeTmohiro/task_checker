@@ -122,7 +122,7 @@ export const TaskBody = (props: Props) => {
          type="button"
          onClick={handleOnDelete}
        >
-         このタスクを削除する削除
+         このタスクを削除する
        </button>
      )}
    </form>
